@@ -1,6 +1,6 @@
 package homework.pet;
 
-import homework.pet.model.Pet;
+import homework.pets.model.Pet;
 
 import java.util.Scanner;
 
@@ -38,7 +38,7 @@ public class PetAppl
         {
             System.out.printf("\nInformation about %d pet: %s :", i+1, pets[i].toString());
             System.out.println("\nPet's day: ");
-            Pet.petDays();
+           // Pet.PetDays();
         }
     }
 

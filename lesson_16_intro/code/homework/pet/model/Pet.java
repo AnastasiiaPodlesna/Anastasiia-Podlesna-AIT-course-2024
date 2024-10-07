@@ -93,7 +93,7 @@ public class Pet
     public static void petDays()
     {
         Random random = new Random();
-        Pet[] pets = new Pet[10];
+        homework.pets.model.Pet[] pets = new homework.pets.model.Pet[10];
         int func = random.nextInt(5);
 
         switch (func)
