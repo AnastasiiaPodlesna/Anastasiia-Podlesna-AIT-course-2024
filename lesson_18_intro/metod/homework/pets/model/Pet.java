@@ -68,7 +68,7 @@ public class Pet
 
     public void voice()
     {
-        System.out.println("Unknown sound ");
+        System.out.println("Unknown sound");
     }
 
     

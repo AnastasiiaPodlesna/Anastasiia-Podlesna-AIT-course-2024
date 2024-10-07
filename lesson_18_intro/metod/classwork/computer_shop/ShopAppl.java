@@ -6,6 +6,7 @@ package classwork.computer_shop;
 
 import classwork.computer_shop.model.Computer;
 import classwork.computer_shop.model.Laptop;
+import classwork.computer_shop.model.Smartphone;
 
 public class ShopAppl
 {
@@ -17,12 +18,17 @@ public class ShopAppl
         Laptop laptop = new Laptop("M2", 8, 256, "Apple AirBook", 2200, 14, 1.5, 10, "blue");
         System.out.println(laptop);
 
-        Computer[] computers = new Computer[5];
+        Smartphone smartphone = new Smartphone("Apple A16 Bionic", 8, 512,"Apple",  1300, 6.1, 240, 2, "Rosa Gold", 1213184875);
+        System.out.println(smartphone);
+
+
+        Computer[] computers = new Computer[6];
         computers[0] = new Computer("i7", 8, 256, "Aser", 1200);
         computers[1] = new Computer("i5", 16, 256, "HP", 1500);
         computers[2] = new Computer("AMD", 8, 256, "NoName", 2000);
         computers[3] = new Laptop("Apple", 8, 256, "MacBook", 2000, 14, 1.5, 10, "white");
         computers[4] = new Laptop("Apple", 16, 256, "MackBook Air", 2300, 12, 1.1, 12, "black");
+        computers[5] = new Smartphone("Apple A16 Bionic", 8, 512,"Apple",  1300, 6.1, 240, 2, "Rosa Gold", 1213184875);
 
         int totalSsd = 0;
         for (int i = 0; i < computers.length; i++)
@@ -46,12 +52,11 @@ public class ShopAppl
             System.out.println(computers[i]);
         }
 
-        System.out.println("------------------------------------------------------------------");
-        for (int i = 0; i < computers.length; i++)
-        {
-            System.out.println(computers[i].getBrand());
-        }
-
+//        System.out.println("------------------------------------------------------------------");
+//        for (int i = 0; i < computers.length; i++)
+//        {
+//            System.out.println(computers[i].getBrand());
+//        }
 
     }
 }
