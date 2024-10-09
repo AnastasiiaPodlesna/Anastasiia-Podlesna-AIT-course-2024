@@ -105,11 +105,5 @@ public class StringExperiments
         else if (Character.valueOf(sentenceIntonation) == '.')
             return "This sentence is declarative (.)";
         else return "Sentence intonation is undefined...";
-
     }
-
-
-
-
-
 }
