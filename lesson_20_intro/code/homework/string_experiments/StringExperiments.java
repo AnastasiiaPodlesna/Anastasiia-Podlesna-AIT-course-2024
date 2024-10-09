@@ -8,7 +8,8 @@ package homework.string_experiments;
 // в зависимости от последнего символа в строке сообщает, какое это предложение:
 // повествовательное;
 // вопросительное;
-// восклицательное. Используйте методы класса Character.
+// восклицательное.
+// Используйте методы класса Character.
 
 import java.util.Scanner;
 
@@ -87,7 +88,7 @@ public class StringExperiments
 
         for (char ch : str.toCharArray())
         {
-            if (Character.hashCode(ch) == 32) // Сюръекция. hashcode()- это область памяти, где лежит объект
+            if (Character.isSpaceChar(ch)) // сравнение символа с пробелом
                 sum++;
         }
         return sum;
