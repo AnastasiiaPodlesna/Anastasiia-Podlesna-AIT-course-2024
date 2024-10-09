@@ -69,4 +69,15 @@ public class Product
     {
         return Objects.hash(price, name, barCode);
     }
+
+
+    public static Product barCodeSearch (Product[] products, long barCode)
+    {
+       for (Product item : products)
+       {
+           if (item.getBarCode() == barCode)
+               return item;
+       }
+       return null;
+    }
 }

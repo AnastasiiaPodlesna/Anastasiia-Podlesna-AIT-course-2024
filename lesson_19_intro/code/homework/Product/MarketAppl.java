@@ -5,6 +5,8 @@ import homework.Product.model.MeatFood;
 import homework.Product.model.MilkFood;
 import homework.Product.model.Product;
 
+import java.util.Scanner;
+
 public class MarketAppl
 {
     public static void main(String[] args) {
@@ -42,7 +44,24 @@ public class MarketAppl
 
         nonFoodProducts(products);
 
+        System.out.println("----------------------------------------------------------------------");
 
+        // метод принимающий баркод и возвращающий продукт с данным баркодом
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input Barcode of the product: ");
+        long barcode = scanner.nextLong();
+
+        Product foundProduct = Product.barCodeSearch(products, barcode);
+
+        if (foundProduct != null)
+        {
+            System.out.println("Product found: " + foundProduct);
+        }
+        else
+        {
+            System.out.println("Product with barcode " + barcode + " not found.");
+        }
     }
 
     public static void printProdukts(Product[] products)
@@ -86,6 +105,13 @@ public class MarketAppl
                 System.out.println("Non-food product: " + item);
         }
     }
+
+
+
+
+
+
+
 
 
 }
