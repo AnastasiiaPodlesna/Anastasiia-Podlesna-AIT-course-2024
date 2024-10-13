@@ -26,14 +26,6 @@ public class Max_Min_Element_Index
         this.array = array;
     }
 
-    @Override
-    public String toString()
-    {
-        return "homework.max_min_element_index.Max_Min_Element_Index{" +
-                "array=" + Arrays.toString(array) +
-                '}';
-    }
-
     public int maxElementSearch(int[] array)
     {
         int maxElement = array[0];
