@@ -30,7 +30,5 @@ public class AutoAppl
         Auto optimalAuto = Auto.isOptimalAuto(autos, kilometers);
 
         Auto.display(optimalAuto);
-
-
     }
 }

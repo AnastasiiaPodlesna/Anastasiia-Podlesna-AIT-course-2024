@@ -38,8 +38,11 @@ public class Book {
     // TODO предусмотреть защиту по поводу 13 цифр и в этом случае
     public void setIsbn(long isbn)
     {
-
-        this.isbn = isbn;
+        if(checkIsbn(isbn) > 0)
+        {
+            this.isbn = checkIsbn(isbn);
+        } else
+            System.out.println("ISBN is not correct. ");;
     }
 
     public String getTitle()
@@ -110,9 +113,11 @@ public class Book {
 
     private boolean countDigit(long isbn)
     {
+        long temp = isbn; // переложили в отд. переменную, что бы не испортить значение isbn
         int count = 0;
-        while ((isbn / 10 != 0))
+        while ((temp != 0))
         {
+            temp = temp / 10;
             count++;
         }
         return  count == ISBN_LENGTH;
