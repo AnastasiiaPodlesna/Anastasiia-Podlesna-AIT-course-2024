@@ -78,4 +78,13 @@ class LibraryTest {
         library.printBook();
     }
 
+    @Test
+    void updateBookTest()
+    {
+        Book newBook = new Book("New book", "Super Puper", 1_111_111_111_114L, 2025);
+        library.addBook(newBook);
+        //library.update
+    }
+
+
 }
