@@ -16,18 +16,46 @@ public class CompanyImpl implements Company
     @Override
     public boolean addEmployee(Employee employee)
     {
+        if (employee == null || size >= employees.length || findEmployee(employee.getId()) != null)
+        {
+            return false;
+        }
+
         return false;
+        employees[size] = employee;
+        size++;
+        return true;
     }
 
     @Override
     public Employee removeEmployee(int id)
     {
+        for (int i = 0; i < size; i++)
+        {
+            if(employees[i].getId() == id)
+            {
+                Employee victim = employees[i];
+                employees[i] = employees[size-1];
+                employees[size-1] = null;
+                size--;
+                return victim;
+            }
+        }
         return null;
     }
+
+
 
     @Override
     public Employee findEmployee(int id)
     {
+        for (int i = 0; i < size; i++)
+        {
+            if(employees[i].getId() == id)
+            {
+                return employees[i];
+            }
+        }
         return null;
     }
 
@@ -40,7 +68,7 @@ public class CompanyImpl implements Company
     @Override
     public int quantity()
     {
-        return 0;
+        return size;
     }
 
     @Override

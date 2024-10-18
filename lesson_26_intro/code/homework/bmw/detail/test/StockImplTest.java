@@ -89,12 +89,13 @@ class StockImplTest
     @Test
     void totalWeightAllDetails()
     {
-        assertEquals(792.0, stock.averageWeightAllDetails()); // средняя масса всех деталей
+        assertEquals(3960.0, stock.totalWeightAllDetails()); // посчитали массу всех деталей
     }
 
     @Test
     void averageWeightAllDetails()
     {
-        assertEquals(3960.0, stock.totalWeightAllDetails()); // посчитали массу всех деталей
+        assertEquals(792.0, stock.averageWeightAllDetails()); // средняя масса всех деталей
+
     }
 }

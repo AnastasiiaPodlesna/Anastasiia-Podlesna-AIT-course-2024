@@ -9,6 +9,8 @@ import classwork.ait.employee.model.Worker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class CompanyImplTest
 {
     Company company;
@@ -18,7 +20,9 @@ class CompanyImplTest
     @BeforeEach
     void setUp()
     {
+        // создаем объект
         company = new CompanyImpl(5);
+        // заполняем массив, что бы заполнить объект
         emp = new Employee[4];
         emp[0] = new Manager(1, "N1", "L1", 160, 5000, 25);
         emp[1] = new SalesManager(2, "N2", "L2", 160, 50000, 0.1);
@@ -28,52 +32,83 @@ class CompanyImplTest
     }
 
     @Test
-    void addEmployee()
+    void addEmployeeTest()
+    {
+        assertEquals(4, company.quantity());
+
+        assertFalse(company.addEmployee(null));
+
+        assertFalse(company.addEmployee(emp[2]));
+
+        Employee newEmp = new Worker(5, "N5", "L5", 160, 20);
+        assertTrue(company.addEmployee(newEmp));
+        assertEquals(5, company.quantity());
+
+        Employee oneMoreEmp = new Worker(6, "N6", "L6", 160, 20);
+        assertFalse(company.addEmployee(oneMoreEmp));
+
+        for (int i = 0; i < 4; i++)
+        {
+            company.addEmployee(emp[i]);
+        }
+    }
+
+    @Test
+    void removeEmployeeTest()
+    {
+        // can remove existed
+        assertEquals(emp[2], company.removeEmployee(1));
+        // check size
+        assertEquals(3, company.quantity());
+        // can't remove absent
+        assertNull(company.removeEmployee(8));
+
+    }
+
+    @Test
+    void findEmployeeTest()
+    {
+        assertEquals(emp[1], company.findEmployee(2));
+        assertNull(company.findEmployee(7));
+    }
+
+    @Test
+    void updateEmployeeTest()
     {
     }
 
     @Test
-    void removeEmployee()
+    void quantityTest()
+    {
+        assertEquals(4, company.quantity());
+    }
+
+    @Test
+    void printEmployeeTest()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            System.out.println(emp[i]);
+        }
+    }
+
+    @Test
+    void totalSalaryTest()
     {
     }
 
     @Test
-    void findEmployee()
+    void totalSalesTest()
     {
     }
 
     @Test
-    void updateEmployee()
+    void findEmployeeHoursGreatThanTest()
     {
     }
 
     @Test
-    void quantity()
-    {
-    }
-
-    @Test
-    void printEmployee()
-    {
-    }
-
-    @Test
-    void totalSalary()
-    {
-    }
-
-    @Test
-    void totalSales()
-    {
-    }
-
-    @Test
-    void findEmployeeHoursGreatThan()
-    {
-    }
-
-    @Test
-    void findEmployeeSalaryRange()
+    void findEmployeeSalaryRangeTest()
     {
     }
 }
