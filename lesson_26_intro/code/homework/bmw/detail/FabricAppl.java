@@ -32,7 +32,7 @@ public class FabricAppl
 
         // поиск детали по barCode
         Detail searchDetail = stock.searchDetail(1000L);
-        System.out.println("Found detail whis barcode: " + searchDetail.getBarCode() + " => " + searchDetail);
+        System.out.println("Found detail with barcode: " + searchDetail.getBarCode() + " => " + searchDetail);
         System.out.println("---------------------------------------------------------------");
 
         // редактируем деталь
@@ -50,6 +50,11 @@ public class FabricAppl
         System.out.printf("Total weight: %.2f ", stock.totalWeightAllDetails());
         System.out.printf("\nAverage weight: %.2f ", stock.averageWeightAllDetails());
         System.out.println("\n---------------------------------------------------------------");
+
+        // печать всех книг:
+
+
+
     }
 
 }

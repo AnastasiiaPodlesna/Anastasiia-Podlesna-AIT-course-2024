@@ -29,6 +29,12 @@ class CompanyImplTest
         emp[2] = new SalesManager(3, "N3", "L3", 160, 80000, 0.15);
         emp[3] = new Worker(4, "N4", "L4", 160, 20);
 
+        // TODO поместить объекты emp[] в объект company с помощью метода addEmployee
+        for (int i = 0; i < 4; i++)
+        {
+            company.addEmployee(emp[i]);
+        }
+
     }
 
     @Test
@@ -57,7 +63,7 @@ class CompanyImplTest
     void removeEmployeeTest()
     {
         // can remove existed
-        assertEquals(emp[2], company.removeEmployee(1));
+        assertEquals(emp[2], company.removeEmployee(3));
         // check size
         assertEquals(3, company.quantity());
         // can't remove absent

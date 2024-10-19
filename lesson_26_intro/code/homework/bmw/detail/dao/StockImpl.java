@@ -1,6 +1,5 @@
 package homework.bmw.detail.dao;
 
-import classwork.book_library.model.Book;
 import homework.bmw.detail.model.Detail;
 
 import java.util.Arrays;

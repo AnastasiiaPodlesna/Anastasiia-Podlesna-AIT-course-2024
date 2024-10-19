@@ -20,8 +20,6 @@ public class CompanyImpl implements Company
         {
             return false;
         }
-
-        return false;
         employees[size] = employee;
         size++;
         return true;
