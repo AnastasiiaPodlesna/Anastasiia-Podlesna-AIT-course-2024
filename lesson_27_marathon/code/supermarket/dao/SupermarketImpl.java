@@ -95,6 +95,11 @@ public class SupermarketImpl implements SuperMarket
         return totalCostOfAllProducts() / size;
     }
 
+    @Override
+    public void display() {
+
+    }
+
     private Product[] findProductsByPredicate(Predicate <Product> predicate)
     {
         int count = 0;
@@ -121,9 +126,9 @@ public class SupermarketImpl implements SuperMarket
         return foundProducts;
     }
 
-    @Override
-    public void display()
-    {
-        superMarket.display();
-    }
+//    @Override
+//    public void display()
+//    {
+//        superMarket.display();
+//    }
 }

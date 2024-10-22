@@ -111,7 +111,7 @@ public class CompanyImpl implements Company
     }
 
     @Override
-    public Employee[] findEmployeeHoursGreatThan(double hours)
+    public Employee[] findEmployeeHoursGreatThan(int hours)
     {
        return findCarsByPredicate(employee -> employee.getHours() > hours) ;
     }

@@ -7,7 +7,6 @@ import java.util.function.Predicate;
 
 public class GarageImpl implements Garage
 {
-
     private Car[] cars;
     private int size;
 
@@ -29,8 +28,19 @@ public class GarageImpl implements Garage
     }
 
     @Override
-    public Car removeCar(String regNumber) {
-        return null;
+    public Car removeCar(String regNumber)
+    {
+        for (int i = 0; i < size; i++) {
+            if (cars[i].getRegNumber() == regNumber)
+            {
+                Car victim = cars[i];
+                cars[i] = cars[size - 1]; // последн. ставим на место удаляемого
+                cars[size - 1] = null; // затираем последний элемент массива
+                size--;
+                return victim;
+            }
+        }
+        return null; // не удалили
     }
 
     @Override
@@ -48,7 +58,6 @@ public class GarageImpl implements Garage
     @Override
     public Car[] findCarsByModel(String model)
     {
-        //return findCarsByPredicate(car -> model.equals(car.getModel()));
         return findCarsByPredicate(car -> car.getModel().equals(model));
     }
 
@@ -67,7 +76,7 @@ public class GarageImpl implements Garage
     @Override
     public Car[] findCarsByColor(String color)
     {
-        return new Car[0];
+        return findCarsByPredicate(car -> car.getColor().equals(color));
     }
 
     @Override

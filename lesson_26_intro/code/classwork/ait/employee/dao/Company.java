@@ -31,7 +31,7 @@ public interface Company
 
     double totalSales();  // объем продаж, есть только у менеджера
 
-    Employee[] findEmployeeHoursGreatThan (double hours);  // переработка, массив сотрудников
+    Employee[] findEmployeeHoursGreatThan (int hours);  // переработка, массив сотрудников
 
     Employee[] findEmployeeSalaryRange(double min, double max); // список сотрудников по зарплате в диапазоне
 
