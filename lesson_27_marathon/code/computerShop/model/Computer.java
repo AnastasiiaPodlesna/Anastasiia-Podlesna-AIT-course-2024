@@ -8,8 +8,9 @@ public class Computer
     private String brand;
     private double price;
     private long stockNumber;
+    private double discount;
 
-    public Computer(String cpu, int ram, int ssd, String brand, double price, long stockNumber)
+    public Computer(String cpu, int ram, int ssd, String brand, double price, long stockNumber, double discount)
     {
         this.cpu = cpu;
         this.ram = ram;
@@ -17,7 +18,9 @@ public class Computer
         this.brand = brand;
         this.price = price;
         this.stockNumber = stockNumber;
+        this.discount = discount;
     }
+
 
     public String getCpu()
     {
@@ -73,6 +76,14 @@ public class Computer
 
     public void setStockNumber(long stockNumber) {this.stockNumber = stockNumber;}
 
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("computerShop.model.Computer{");
@@ -82,6 +93,7 @@ public class Computer
         sb.append(", brand='").append(brand).append('\'');
         sb.append(", price=").append(price);
         sb.append(", stockNumber=").append(stockNumber);
+        sb.append(", discount =").append(discount);
         sb.append('}');
         return sb.toString();
     }

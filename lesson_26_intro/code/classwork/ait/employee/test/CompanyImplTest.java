@@ -24,10 +24,10 @@ class CompanyImplTest
         company = new CompanyImpl(5);
         // заполняем массив, что бы заполнить объект
         emp = new Employee[4];
-        emp[0] = new Manager(1, "N1", "L1", 160, 5000, 25);
+        emp[0] = new Manager(1, "N1", "L1", 150, 5000, 25);
         emp[1] = new SalesManager(2, "N2", "L2", 160, 50000, 0.1);
         emp[2] = new SalesManager(3, "N3", "L3", 160, 80000, 0.15);
-        emp[3] = new Worker(4, "N4", "L4", 160, 20);
+        emp[3] = new Worker(4, "N4", "L4", 140, 20);
 
         // TODO поместить объекты emp[] в объект company с помощью метода addEmployee
         for (int i = 0; i < 4; i++)
@@ -101,20 +101,35 @@ class CompanyImplTest
     @Test
     void totalSalaryTest()
     {
+        double totalSalary = 28550; // предположение
+        assertEquals(totalSalary, company.totalSalary());
     }
 
     @Test
     void totalSalesTest()
     {
+        assertEquals(130000, company.totalSales());
+    }
+
+    @Test
+    void averageSalaryTest()
+    {
+        assertEquals(7137.5, company.averageSalary());
     }
 
     @Test
     void findEmployeeHoursGreatThanTest()
     {
+        Employee[] employeeHoursGreatThan = {emp[1], emp[2]};
+        assertArrayEquals(employeeHoursGreatThan, company.findEmployeeHoursGreatThan(150));
     }
 
     @Test
     void findEmployeeSalaryRangeTest()
     {
+        double min = 2000;
+        double max = 6000;
+        Employee[] employeeSalaryRange = {emp[1], emp[3]};
+        assertArrayEquals(employeeSalaryRange, company.findEmployeeSalaryRange(min, max));
     }
 }

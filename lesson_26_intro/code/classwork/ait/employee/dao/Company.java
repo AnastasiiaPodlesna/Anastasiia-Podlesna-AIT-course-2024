@@ -27,11 +27,13 @@ public interface Company
 
     double totalSalary(); // объем ФОТ
 
+    double averageSalary();
+
     double totalSales();  // объем продаж, есть только у менеджера
 
-    Employee[] findEmployeeHoursGreatThan (int hours);  // переработка, массив сотрудников
+    Employee[] findEmployeeHoursGreatThan (double hours);  // переработка, массив сотрудников
 
-    Employee[] findEmployeeSalaryRange(double min, double max); // список сотрудников с
+    Employee[] findEmployeeSalaryRange(double min, double max); // список сотрудников по зарплате в диапазоне
 
 
 

@@ -21,12 +21,12 @@ class ShopImplTest
         devices = new Computer[6];
         shop = new ShopImpl(7);
 
-        devices[0] = new Computer("AMD", 128, 512, "Samsung", 1500, 10200L);
-        devices[1] = new Computer("AMD", 256, 512, "HP", 1800, 10201L);
-        devices[2] = new Laptop("i9", 128, 256, "Samsung", 1300, 10202L, "red");
-        devices[3] = new Laptop("i7", 128, 512, "Lenovo", 1000, 10203L, "white");
-        devices[4] = new SmartPhone("A14 Bionic", 256, 512, "Apple", 1400, 10204L, 1234567891234L);
-        devices[5] = new SmartPhone("Snapdragon 888", 128, 512, "Samsung", 1100, 10205L, 1234567771234L);
+        devices[0] = new Computer("AMD", 128, 512, "Samsung", 1500, 10200L, 0.15);
+        devices[1] = new Computer("AMD", 256, 512, "HP", 1800, 10201L,0.0);
+        devices[2] = new Laptop("i9", 128, 256, "Samsung", 1300, 10202L, 0.15,"red");
+        devices[3] = new Laptop("i7", 128, 512, "Lenovo", 1000, 10203L, 0.0,"white");
+        devices[4] = new SmartPhone("A14 Bionic", 256, 512, "Apple", 1400, 10204L, 0.2,1234567891234L);
+        devices[5] = new SmartPhone("Snapdragon 888", 128, 512, "Samsung", 1100, 10205L, 0.0,1234567771234L);
 
         for (int i = 0; i < devices.length; i++)
         {
@@ -41,10 +41,10 @@ class ShopImplTest
         assertFalse(shop.addDevice(null));       // не добавлять пустое
         assertFalse(shop.addDevice(devices[2]));  // не добавлять дубликат
         // добавляем еще
-        Computer newDevice = new Computer("AMD", 64, 256, "Samsung", 900, 10206L);
+        Computer newDevice = new Computer("AMD", 64, 256, "Samsung", 900, 10206L,0.15);
         assertTrue(shop.addDevice(newDevice)); // +
         // добавляем еще документ, сверх возможности capacity
-        Computer oneMoreDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L);
+        Computer oneMoreDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L, 0.0);
         assertFalse(shop.addDevice(oneMoreDevice)); // -, нет места
     }
 
@@ -59,7 +59,7 @@ class ShopImplTest
     @Test
     void updateDevice()
     {
-       Computer newDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L);
+       Computer newDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L, 0.2);
         assertTrue(shop.updateDevice(10201L, newDevice)); // нашли и заменили
         assertFalse(shop.updateDevice(1100007L, newDevice));// не нашли, не заменили
     }
@@ -76,7 +76,7 @@ class ShopImplTest
     @Test
     void findBlackFridayDevices()
     {
-        Computer[] bfDevices = {devices[0], devices[2], devices[5]};
+        Computer[] bfDevices = {devices[0], devices[2], devices[4]};
         assertArrayEquals(bfDevices, shop.findBlackFridayDevices(devices));
         assertEquals(3, shop.blackFridayDeviceCounter(devices));
         assertNotEquals(0, shop.blackFridayDeviceCounter(devices));

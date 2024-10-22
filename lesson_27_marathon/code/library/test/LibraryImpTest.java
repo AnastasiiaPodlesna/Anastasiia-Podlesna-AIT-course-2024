@@ -65,7 +65,7 @@ class LibraryImpTest
     @Test
     void deleteBookTest()
     {
-        // удаление существующий книги existed book
+        // удаление существующей книги existed book
         assertEquals(books[0], library.deleteBook(1_111_111_111_110L));
         // удаление несуществующей книги absent book
         assertNull(library.deleteBook(1_111_111_111_119L));

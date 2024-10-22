@@ -10,8 +10,9 @@ public class Laptop extends Computer
             String brand,
             double price,
             long stockNumber,
+            double discount,
             String color) {
-        super(cpu, ram, ssd, brand, price, stockNumber);
+        super(cpu, ram, ssd, brand, price, stockNumber, discount);
         this.color = color;
     }
 

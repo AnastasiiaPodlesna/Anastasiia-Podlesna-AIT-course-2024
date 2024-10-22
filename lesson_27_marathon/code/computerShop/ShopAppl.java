@@ -13,12 +13,12 @@ public class ShopAppl
         Computer[] devices = new Computer[6];
         Shop shop = new ShopImpl(7);
 
-        devices[0] = new Computer("AMD", 128, 512, "Samsung", 1500, 10200L);
-        devices[1] = new Computer("AMD", 256, 512, "HP", 1800, 10201L);
-        devices[2] = new Laptop("i9", 128, 256, "Samsung", 1300, 10202L, "red");
-        devices[3] = new Laptop("i7", 128, 512, "Lenovo", 1000, 10203L, "white");
-        devices[4] = new SmartPhone("A14 Bionic", 256, 512, "Apple", 1400, 10204L, 1234567891234L);
-        devices[5] = new SmartPhone("Snapdragon 888", 128, 512, "Samsung", 1100, 10205L, 1234567771234L);
+        devices[0] = new Computer("AMD", 128, 512, "Samsung", 1500, 10200L, 0.10);
+        devices[1] = new Computer("AMD", 256, 512, "HP", 1800, 10201L, 0.0);
+        devices[2] = new Laptop("i9", 128, 256, "Samsung", 1300, 10202L, 0.15,"red");
+        devices[3] = new Laptop("i7", 128, 512, "Lenovo", 1000, 10203L, 0.0,"white");
+        devices[4] = new SmartPhone("A14 Bionic", 256, 512, "Apple", 1400, 10204L, 0.2,1234567891234L);
+        devices[5] = new SmartPhone("Snapdragon 888", 128, 512, "Samsung", 1100, 10205L, 0.0,1234567771234L);
 
         for (int i = 0; i < devices.length; i++)
         {
@@ -37,7 +37,7 @@ public class ShopAppl
         System.out.println("---------------------------------------------------------------");
 
         // редактируем
-        Computer uppdatedDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L);
+        Computer uppdatedDevice = new Computer("i9", 256, 512, "DELL", 1000, 10207L, 0.1);
         System.out.println("Editable device: "); // редактируемый документ
         System.out.println(devices[2].toString());
         boolean isUpdated = shop.updateDevice(devices[2].getStockNumber(), uppdatedDevice);
@@ -61,7 +61,7 @@ public class ShopAppl
         System.out.println("---------------------------------------------------------------");
 
         // добавляем еще одно устройство (в магазине есть место)
-        devices[3] = new Computer("AMD", 64, 256, "Samsung", 900, 10206L);
+        devices[3] = new Computer("AMD", 64, 256, "Samsung", 900, 10206L, 0.0);
         System.out.println("Added device: ");
         System.out.println(devices[3].toString());
         System.out.println("\nAttempt to add device: " + shop.addDevice(devices[3]));

@@ -2,20 +2,24 @@ package computerShop.dao;
 
 import computerShop.model.Computer;
 
-public class ShopImpl implements Shop {
+public class ShopImpl implements Shop
+{
+
     Computer device;
     Computer[] devices;
     int size;
-    final String BLACK_FRIDAY_BRAND = "Samsung";
 
-    public ShopImpl(int capacity) {
+    public ShopImpl(int capacity)
+    {
         devices = new Computer[capacity];
         size = 0;
     }
 
     @Override
-    public boolean addDevice(Computer device) {
-        if (device == null || size == devices.length || findDevice(device.getStockNumber()) != null) {
+    public boolean addDevice(Computer device)
+    {
+        if (device == null || size == devices.length || findDevice(device.getStockNumber()) != null)
+        {
             return false; // если устройство пустышка или нет места в массиве для него или он уже есть в массиве, тогда не добавляем
         }
         devices[size] = device; // иначе добавляем в массив
@@ -24,9 +28,11 @@ public class ShopImpl implements Shop {
     }
 
     @Override
-    public Computer findDevice(long stockNumber) {
+    public Computer findDevice(long stockNumber)
+    {
         for (int i = 0; i < size; i++) {
-            if (devices[i].getStockNumber() == stockNumber) {
+            if (devices[i].getStockNumber() == stockNumber)
+            {
                 return devices[i]; // нашли
             }
         }
@@ -37,7 +43,8 @@ public class ShopImpl implements Shop {
     public boolean updateDevice(long stockNumber,
             Computer updatedDevice) {
         for (int i = 0; i < size; i++) {
-            if (devices[i].getStockNumber() == stockNumber) {
+            if (devices[i].getStockNumber() == stockNumber)
+            {
                 devices[i] = updatedDevice; // обновляем
                 return true; // получилось обновить
             }
@@ -46,9 +53,11 @@ public class ShopImpl implements Shop {
     }
 
     @Override
-    public boolean removeDevice(long stockNumber) {
+    public boolean removeDevice(long stockNumber)
+    {
         for (int i = 0; i < size; i++) {
-            if (devices[i].getStockNumber() == stockNumber) {
+            if (devices[i].getStockNumber() == stockNumber)
+            {
                 Computer victim = devices[i];
                 devices[i] = devices[size - 1]; // последн. ставим на место удаляемого
                 devices[size - 1] = null; // затираем последний элемент массива
@@ -71,7 +80,7 @@ public class ShopImpl implements Shop {
         }
         for (int i = 0, j = 0; i < size; i++)
         {
-            if (devices[i].getBrand() == BLACK_FRIDAY_BRAND)
+            if (devices[i].getDiscount() > 0)
             {
                 blackFridayDevices[j] = devices[i];
                 j++;
@@ -85,8 +94,9 @@ public class ShopImpl implements Shop {
     {
         int counter = 0;
 
-        for (int i = 0; i < size; i++) {
-            if (devices[i].getBrand() == BLACK_FRIDAY_BRAND)
+        for (int i = 0; i < size; i++)
+        {
+            if (devices[i].getDiscount() > 0)
             {
                 counter++;
             }
