@@ -38,7 +38,7 @@ class CarTest
         printCars(); // print as is
 
         Arrays.sort(cars); // sorting
-        System.out.println("---------- List wines sorted by year of manufacture ------------");
+        System.out.println("---------- List cars sorted by year of manufacture ------------");
         printCars(); // print after sorting
     }
 
@@ -55,7 +55,7 @@ class CarTest
         };
 
         Arrays.sort(cars, sortCarsByModel);
-        System.out.println("---------- List wines sorted by model --------------");
+        System.out.println("---------- List cars sorted by model --------------");
         printCars(); // print after sorting
     }
 
@@ -72,7 +72,7 @@ class CarTest
         };
 
         Arrays.sort(cars, sortCarsByColor);
-        System.out.println("---------- List wines sorted by color --------------");
+        System.out.println("---------- List cars sorted by color --------------");
         printCars(); // print after sorting
     }
 
@@ -89,7 +89,7 @@ class CarTest
         };
 
         Arrays.sort(cars, sortCarsByPrice);
-        System.out.println("---------- List wines sorted by price --------------");
+        System.out.println("---------- List cars sorted by price --------------");
         printCars(); // print after sorting
     }
 

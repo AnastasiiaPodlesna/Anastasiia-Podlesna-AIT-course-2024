@@ -70,7 +70,8 @@ public class GarageImpl implements Garage
     @Override
     public Car[] findCarsByEngine(double min, double max)
     {
-        return new Car[0];
+        //return new findCarsByPredicate(car -> car.getEngine() > min && car.getEngine() < max);
+        return new Car [0];
     }
 
     @Override
