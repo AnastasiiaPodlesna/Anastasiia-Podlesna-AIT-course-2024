@@ -60,12 +60,11 @@ public class Friend implements Comparable<Friend>
 
     public void printArray(Object[] array, String titleOfReport)
     {
-        System.out.println("------------" + titleOfReport + "---------------");
-       for (Object o : array)
+        System.out.println("\n------------" + titleOfReport + "---------------");
+        for (Object o : array)
         {
             System.out.println(o);
         }
     }
 
 }
-
