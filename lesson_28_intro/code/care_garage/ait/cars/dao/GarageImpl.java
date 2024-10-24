@@ -2,6 +2,7 @@ package care_garage.ait.cars.dao;
 
 import care_garage.ait.cars.model.Car;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 
@@ -86,14 +87,42 @@ public class GarageImpl implements Garage
         return size;
     }
 
+
     @Override
-    public void printCars()
+    public void printCars(Object[] o, String report)
     {
-        for (int i = 0; i < size; i++)
+        System.out.println("--------------------------------------------");
+        System.out.println("---------- " + report + " ----------");
+        System.out.println("--------------------------------------------");
+        for (Object car : o )
         {
-            System.out.println(cars[i]);
+            System.out.println(car);
         }
 
+    }
+//---------------------------------------------------------------------
+    @Override
+    public Car[] sortingByCarColor(Car[] cars)
+    {
+        Arrays.sort(cars, (c1, c2) -> c1.getColor().compareTo(c2.getColor()));
+        printCars(cars, "Sorting by color");
+        return cars;
+    }
+
+    @Override
+    public Car[] sortingByCompany(Car[] cars)
+    {
+        Arrays.sort(cars, (c1, c2) -> c1.getCompany().compareTo(c2.getCompany()));
+        printCars(cars, "Sorting by company");
+        return cars;
+    }
+
+    @Override
+    public Car[] sortingByCarModel(Car[] cars)
+    {
+        Arrays.sort(cars, (c1, c2) -> c1.getModel().compareTo(c2.getModel()));
+        printCars(cars, "Sorting by model");
+        return cars;
     }
 
     // в этот метод передаем логическое выражение, которое будет тестировать объекты типа Car

@@ -22,7 +22,7 @@ class GarageImplTest
         cars[0] = new Car("Number1", "Model1", "Company1", 1.5, "Red", 2013);
         cars[1] = new Car("Number2", "Model2", "Company1", 2.5, "Green", 1980);
         cars[2] = new Car("Number3", "Model1", "Company2", 1.5, "Red", 2020);
-        cars[3] = new Car("Number4", "Model4", "Company2", 2.0, "Green", 2024);
+        cars[3] = new Car("Number4", "Model4", "Company2", 2.0, "Yellow", 2024);
 
         for (int i = 0; i < cars.length; i++)
         {
@@ -93,9 +93,50 @@ class GarageImplTest
         assertEquals(4, garage.size());
     }
 
+
+//----------------------------------------------------------------------------------------
     @Test
-    void printCarsTest()
+    void sortingByCarColorTest()
     {
-        garage.printCars();
+        Car[] choosingCarsByColors = new Car[]
+        {
+                new Car("Number2", "Model2", "Company1", 2.5, "Green", 1980),
+                new Car("Number1", "Model1", "Company1", 1.5, "Red", 2013),
+                new Car("Number3", "Model1", "Company2", 1.5, "Red", 2020),
+                new Car("Number4", "Model4", "Company2", 2.0, "Yellow", 2024)
+        };
+      assertArrayEquals(choosingCarsByColors, garage.sortingByCarColor(cars));
+      garage.printCars(choosingCarsByColors, "sss");
+
+    }
+
+    @Test
+    void sortingByCompany()
+    {
+        Car[] choosingCarsByCompany = new Car[]
+        {
+                new Car("Number1", "Model1", "Company1", 1.5, "Red", 2013),
+                new Car("Number2", "Model2", "Company1", 2.5, "Green", 1980),
+                new Car("Number3", "Model1", "Company2", 1.5, "Red", 2020),
+                new Car("Number4", "Model4", "Company2", 2.0, "Yellow", 2024)
+        };
+
+        assertArrayEquals(choosingCarsByCompany, garage.sortingByCompany(cars));
+        garage.printCars(choosingCarsByCompany, "Data source");
+    }
+
+    @Test
+    void sortingByCarModel()
+    {
+        Car[] choosingCarsByModel = new Car[]
+        {
+                new Car("Number1", "Model1", "Company1", 1.5, "Red", 2013),
+                new Car("Number3", "Model1", "Company2", 1.5, "Red", 2020),
+                new Car("Number2", "Model2", "Company1", 2.5, "Green", 1980),
+                new Car("Number4", "Model4", "Company2", 2.0, "Yellow", 2024)
+        };
+
+        assertArrayEquals(choosingCarsByModel, garage.sortingByCarModel(cars));
+        garage.printCars(choosingCarsByModel, "Sorting by model");
     }
 }

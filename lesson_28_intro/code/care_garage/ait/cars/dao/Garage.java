@@ -12,5 +12,10 @@ public interface Garage
     Car[] findCarsByEngine(double min, double max);
     Car[] findCarsByColor(String color);
     int size();
-    void printCars();
+    void printCars(Object[] o, String str);
+
+    Car[] sortingByCarColor(Car[] cars);
+    Car[] sortingByCompany(Car[] cars);
+    Car[] sortingByCarModel(Car[] cars);
+
 }
