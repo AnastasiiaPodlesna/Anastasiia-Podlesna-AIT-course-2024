@@ -35,7 +35,8 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_28_intro/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_29_comparator/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_30_soldiers_Integer/code" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lesson_31_intro/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_31_intro_City/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_32_intro/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

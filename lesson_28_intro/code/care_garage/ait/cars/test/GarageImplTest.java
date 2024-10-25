@@ -106,7 +106,7 @@ class GarageImplTest
                 new Car("Number4", "Model4", "Company2", 2.0, "Yellow", 2024)
         };
       assertArrayEquals(choosingCarsByColors, garage.sortingByCarColor(cars));
-      garage.printCars(choosingCarsByColors, "sss");
+      garage.printCars(choosingCarsByColors, "Sorting by color");
 
     }
 

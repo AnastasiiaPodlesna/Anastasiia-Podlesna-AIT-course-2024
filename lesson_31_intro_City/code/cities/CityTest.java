@@ -130,6 +130,27 @@ class CityTest {
         printArray(cities, "List with added city");
 
     }
+    // Проверьте работу метода System.arraycopy, скопировав часть массива.
+    @Test
+    void testSystemArrayCopy()
+    {
+        // расширим массив на 2 элемента
+        City[] citiesCopyPlus2 = new City[cities.length + 2];
+        // копируем имеющийся массив в новый
+        System.arraycopy(cities, 2, citiesCopyPlus2, 3,4);
+        printArray(cities, " Original array ");
+        printArray(citiesCopyPlus2, " Copy of array ");
+    }
+
+    // Проверьте работу метода Arrays.copyOfRange
+    @Test
+    void testArrayCopyOfRange()
+    {
+        City[] citiesCopy = Arrays.copyOfRange(cities, 4, cities.length + 3);
+        printArray(cities," Original array ");
+        printArray(citiesCopy, " Copy of array ");
+    }
+
 
 
 
