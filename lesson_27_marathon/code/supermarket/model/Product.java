@@ -60,9 +60,20 @@ public abstract class Product
         this.name = name;
     }
 
+//    @Override
+//    public String toString() {
+//        final StringBuilder sb = new StringBuilder("supermarket.model.Product{");
+//        sb.append("barCode=").append(barCode);
+//        sb.append(", name='").append(name).append('\'');
+//        sb.append(", price=").append(price);
+//        sb.append(", exp_date=").append(exp_date);
+//        sb.append('}');
+//        return sb.toString();
+//    }
+
     public void display()
     {
-        System.out.printf("barCode: %d, name: %s, price: %.2f, exp date: ^(\\d{4})\\.(0[1-9]|1[0-2])\\.(0[1-9]|[12][0-9]|3[01])$", barCode, name, price);
+        System.out.printf("barCode: %d, name: %s, price: %.2f, exp date: %s%n", barCode, name, price, exp_date.toString());
     }
 
 }

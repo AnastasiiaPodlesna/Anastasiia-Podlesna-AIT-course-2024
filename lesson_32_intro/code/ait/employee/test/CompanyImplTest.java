@@ -88,11 +88,11 @@ class CompanyImplTest
         Employee updatedEmployee1 = new SalesManager(1, "N10", "L10", 150, 5000, 10);
 
         assertTrue(company.updateEmployee(updatedEmployee1)); // обновилась
+        company.printEmployee();
 
         //  редактируем сотрудника, которого нет в массиве
         Employee updatedEmployee2 = new SalesManager(100, "N100", "L100", 1500, 50000, 100);
         assertFalse(company.updateEmployee(updatedEmployee2)); // не обновилась
-
     }
 
     @Test

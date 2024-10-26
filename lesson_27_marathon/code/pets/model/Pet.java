@@ -1,6 +1,6 @@
-package homework.pets.model;
+package pets.model;
 
-public class Pet
+public abstract class Pet
 {
     private int id;
     private String type;
@@ -58,20 +58,15 @@ public class Pet
     @Override
     public String toString()
     {
-        return "Pet{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", age=" + age +
-                ", name='" + name + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("pets.model.Pet{");
+        sb.append("id=").append(id);
+        sb.append(", type='").append(type).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 
-    public void voice()
-    {
-        System.out.println("Unknown sound");
-    }
-
-    
 }
 
 

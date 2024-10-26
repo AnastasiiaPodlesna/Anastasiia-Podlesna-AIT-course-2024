@@ -7,8 +7,7 @@ import java.util.function.Predicate;
 
 public class SupermarketImpl implements SuperMarket
 {
-    Product[] products;
-    SuperMarket superMarket;
+    public Product[] products;
     int size;
     final LocalDate CURRENT_DATE = LocalDate.now();
 
@@ -96,8 +95,12 @@ public class SupermarketImpl implements SuperMarket
     }
 
     @Override
-    public void display() {
-
+    public void display()
+    {
+        for (int i = 0; i < products.length; i++)
+        {
+            System.out.println(products[i]);
+        }
     }
 
     private Product[] findProductsByPredicate(Predicate <Product> predicate)
@@ -126,9 +129,4 @@ public class SupermarketImpl implements SuperMarket
         return foundProducts;
     }
 
-//    @Override
-//    public void display()
-//    {
-//        superMarket.display();
-//    }
 }

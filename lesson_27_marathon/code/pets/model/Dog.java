@@ -1,4 +1,4 @@
-package homework.pets.model;
+package pets.model;
 
 public class Dog extends Pet
 {
@@ -47,17 +47,14 @@ public class Dog extends Pet
     @Override
     public String toString()
     {
-        return "Dog{" +
-                "breed='" + breed + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                "} " + super.toString();
-    }
-
-    @Override
-    public void voice()
-    {
-        System.out.println("Woof-woof!");
+        final StringBuilder sb = new StringBuilder("pets.model.Dog{");
+        sb.append("breed='").append(breed).append('\'');
+        sb.append(", height=").append(height);
+        sb.append(", weight=").append(weight);
+        sb.append('}');
+        return sb.toString();
     }
     
 }
+
+

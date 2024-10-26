@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class CompanyImpl implements Company
 {
-    private Employee[] employees;
+    public Employee[] employees;
     private int size;
     private CompanyImpl company;
 
@@ -37,9 +37,11 @@ public class CompanyImpl implements Company
             if(employees[i].getId() == id)
             {
                 Employee victim = employees[i];
-                employees[i] = employees[size-1];
-                employees[size-1] = null;
-                size--;
+//                employees[i] = employees[size-1];
+//                employees[size-1] = null;
+//                size--;
+                System.arraycopy(employees, i+1, employees, i, size - i - 1);
+                employees[--size] = null;
                 return victim;
             }
         }
@@ -83,7 +85,10 @@ public class CompanyImpl implements Company
     @Override
     public void printEmployee()
     {
-
+        for (int i = 0; i < size; i++)
+        {
+            System.out.println(employees[i]);
+        }
     }
 
     @Override

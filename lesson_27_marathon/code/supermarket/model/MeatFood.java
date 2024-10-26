@@ -29,7 +29,7 @@ public class MeatFood extends Product
 
     public void display()
     {
-        System.out.printf("barCode: %d, name: %s, price: %.2f, meat type: %s,expiration_date:" + "^(\\d{4})\\.(0[1-9]|1[0-2])\\.(0[1-9]|[12][0-9]|3[01])$", getBarCode(), getName(), getPrice(), meatType, getExp_date());
+        System.out.printf("barCode: %d, name: %s, price: %.2f, meat type: %s, expiration_date:  %s%n", getBarCode(), getName(), getPrice(), meatType, getExp_date().toString());
     }
 
 }

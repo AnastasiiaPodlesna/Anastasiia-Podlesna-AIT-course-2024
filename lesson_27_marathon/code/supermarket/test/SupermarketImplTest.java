@@ -100,5 +100,4 @@ class SupermarketImplTest
     {
         assertEquals(6.508, supermarket.averageCostOfAllProducts());
     }
-
 }
