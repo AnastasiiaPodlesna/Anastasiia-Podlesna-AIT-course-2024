@@ -5,14 +5,17 @@ import pets.model.Dog;
 import pets.model.Pet;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.function.Predicate;
 
 public class PetHotelImpl implements PetHotel
 {
-    private Pet[] pets = new Pet[10]; // максимум 10 питомцев
+    private Pet[] pets; // максимум 10 питомцев
     private int petCount; // счетчик добавленных питомцев
     private double pricePerDay = 30.0; // цена за день в отеле
+
 
     public PetHotelImpl(int capacity)
     {
@@ -74,16 +77,51 @@ public class PetHotelImpl implements PetHotel
          return findPetsByPredicate(pet -> pet instanceof Cat && ((Cat) pet).getBreed().equals(breed) || pet instanceof Dog && ((Dog) pet).getBreed().equals(breed));
      }
 
+
     @Override
-    public Pet[] catsByBreed()
+    public String[] catsByBreed() // массив пород кошек
     {
-        return findPetsByPredicate(pet -> pet instanceof Cat);
+        Pet[] allCats = findPetsByPredicate(pet -> pet instanceof Cat); //все кошки из тестового списка
+
+        String[] catBreeds = new String[allCats.length];
+        int breedCount = 0;
+        String breed;
+
+        for (Pet pet : allCats)
+        {
+            breed = ((Cat) pet).getBreed();
+            catBreeds[breedCount++] = breed; // создали стринговый массив с названиями пород
+        }
+        // используем Set для хранения уникальных названий пород, для этого преобразуем массив в список и передаем в коструктор HashSet (автоматически удаляем все дубликаты)
+        Set<String> uniqueSet = new HashSet<>(Arrays.asList(catBreeds));
+
+        // преобразуем Set обратно в массив
+        String[] uniqueCatsBreed = uniqueSet.toArray(new String[0]);
+
+        return uniqueCatsBreed;
     }
 
     @Override
-    public Pet[] dogsByBreed()
+    public String[] dogsByBreed() // массив пород собак
     {
-        return findPetsByPredicate(pet -> pet instanceof Dog);
+        Pet[] allDogs = findPetsByPredicate(pet -> pet instanceof Dog); //все собаки из тестового списка
+
+        String[] dogBreeds = new String[allDogs.length];
+        int breedCount = 0;
+        String breed;
+
+        for (Pet pet : allDogs)
+        {
+            breed = ((Dog) pet).getBreed();
+            dogBreeds[breedCount++] = breed; // создали стринговый массив с названиями пород
+        }
+        // используем Set для хранения уникальных названий пород, для этого преобразуем массив в список и передаем в коструктор HashSet (автоматически удаляем все дубликаты)
+        Set<String> uniqueSet = new HashSet<>(Arrays.asList(dogBreeds));
+
+        // преобразуем Set обратно в массив
+        String[] uniqueDogsBreed = uniqueSet.toArray(new String[0]);
+
+        return uniqueDogsBreed;
     }
 
 
