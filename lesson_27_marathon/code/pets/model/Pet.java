@@ -58,13 +58,7 @@ public abstract class Pet
     @Override
     public String toString()
     {
-        final StringBuilder sb = new StringBuilder("pets.model.Pet{");
-        sb.append("id=").append(id);
-        sb.append(", type='").append(type).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return String.format("id: %d, type: %s, age: %d, name: %s", id, type, age, name);
     }
 
 }

@@ -50,11 +50,43 @@ public class PetHotelAppl
             {
                 System.out.println("-------------------------------------------------");
                 System.out.println("Cats by breed: " );
+
                 for (int i = 0; i < petHotel.findPetsByBreed(petHotel.catsByBreed()[choiceBreed-1]).length; i++)
                 {
                     System.out.println(petHotel.findPetsByBreed(petHotel.catsByBreed()[choiceBreed-1])[i]);
                 }
                 System.out.println("-------------------------------------------------");
+                System.out.println("-------------------------------------------------");
+
+                System.out.println("Want to remove a pet (by id)?" );
+                System.out.println("1 => Yes, 2 => No");
+                int choice = scanner.nextInt();
+
+                if (choice == 1)
+                {
+                    System.out.println("-------------------------------------------------");
+                    System.out.println("Pets in Hotel: ");
+
+                    for (Pet pet :  petHotel.getPets())
+                    {
+                        System.out.println(pet);
+                    }
+                    System.out.println("-------------------------------------------------");
+                    System.out.println("Input Id removed pet: ");
+                    if (petHotel.removePet(scanner.nextInt()))
+                    {
+                        for (Pet pet : petHotel.getPets())
+                        {
+                            System.out.println(pet);
+                        }
+                    }
+                    else System.out.println("Error...");
+                    System.out.println("-------------------------------------------------");
+                }
+                else if (choice == 2)
+                {
+                    System.out.println("Goodbye!");
+                }
             }
             scanner.close();
         }
@@ -62,28 +94,61 @@ public class PetHotelAppl
         {
             //  доступные породы
             System.out.println("What kind of dog are you interested in?");
-            for (int i = 0; i < petHotel.dogsByBreed().length; i++) {
+            for (int i = 0; i < petHotel.dogsByBreed().length; i++)
+            {
                 System.out.printf("%d => %s%n", i + 1, petHotel.dogsByBreed()[i]);
             }
             // запрашиваем выбор пользователя
             int choiceBreed = scanner.nextInt();
 
             // проверяем корректность ввода
-            if (choiceBreed > 0 && choiceBreed <= petHotel.dogsByBreed().length) {
+            if (choiceBreed > 0 && choiceBreed <= petHotel.dogsByBreed().length)
+            {
                 System.out.println("-------------------------------------------------");
                 System.out.println("Dogs by breed: ");
-                for (int i = 0; i < petHotel.findPetsByBreed(petHotel.dogsByBreed()[choiceBreed - 1]).length; i++)
-                {
+                for (int i = 0; i < petHotel.findPetsByBreed(petHotel.dogsByBreed()[choiceBreed - 1]).length; i++) {
                     System.out.println(petHotel.findPetsByBreed(petHotel.dogsByBreed()[choiceBreed - 1])[i]);
+
                     System.out.println("-------------------------------------------------");
+                    System.out.println("-------------------------------------------------");
+
+                    System.out.println("Want to remove a pet (by id)?");
+                    System.out.println("1 => Yes, 2 => No");
+                    int choice = scanner.nextInt();
+
+                    if (choice == 1)
+                    {
+                        System.out.println("-------------------------------------------------");
+                        System.out.println("Pets in Hotel: ");
+
+                        for (Pet pet : petHotel.getPets())
+                        {
+                            System.out.println(pet);
+                        }
+                        System.out.println("-------------------------------------------------");
+                        System.out.println("Input Id removed pet: ");
+                        if (petHotel.removePet(scanner.nextInt()))
+                        {
+                            for (Pet pet : petHotel.getPets())
+                            {
+                                System.out.println(pet);
+                            }
+                        } else
+                        {
+                            System.out.println("Error...");
+                            System.out.println("-------------------------------------------------");
+                        }
+                    } else if (choice == 2)
+                    {
+                        System.out.println("Goodbye!");
+                    }
                 }
+                scanner.close();
             }
-            scanner.close();
         }
         else
         {
             System.out.println("Invalid choice, please select a valid option.");
         }
-
     }
 }

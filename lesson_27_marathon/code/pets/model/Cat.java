@@ -48,12 +48,8 @@ public class Cat extends Pet
     @Override
     public String toString()
     {
-        final StringBuilder sb = new StringBuilder("pets.model.Cat{");
-        sb.append("breed='").append(breed).append('\'');
-        sb.append(", height=").append(height);
-        sb.append(", weight=").append(weight);
-        sb.append('}');
-        return sb.toString();
+        return String.format("id: %d, type: %s, age: %d, name: %s, breed: %s, height: %.2f, weight: %.2f", getId(), getType(), getAge(), getName(), breed, height, weight);
+
     }
     
 }

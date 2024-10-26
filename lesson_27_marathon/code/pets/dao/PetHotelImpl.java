@@ -23,7 +23,6 @@ public class PetHotelImpl implements PetHotel
         petCount = 0;
     }
 
-
     public Pet[] getPets()
     {
         return pets;
@@ -43,22 +42,68 @@ public class PetHotelImpl implements PetHotel
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Arrays.hashCode(pets);
+    }
+//---------------------------------------------------------------------------------------
+
+    @Override
+    public Boolean addPet(Pet pet)
+    {
+        if (pet == null || petCount == pets.length || findPet(pet.getId()) != null)
+        {
+            return false;
+        }
+        pets[petCount] = pet; // иначе добавляем в массив
+        petCount++;
+        return true; // добавили
     }
 
     @Override
-    public void addPet(Pet pet)
+    public Boolean removePet(int id)
     {
-        if (petCount < pets.length)
+        for (int i = 0; i < petCount; i++)
         {
-            pets[petCount++] = pet; // добавляем питомца и увеличиваем счетчик
+            Pet pet = pets[i];
+            if (pet != null && pet.getId() == id)
+            {
+                // сдвигаем элементы влево
+                System.arraycopy(pets, i + 1, pets, i, petCount - i - 1);
+                pets[--petCount] = null; // уменьшаем счетчик, нуль в конец
+                return true; // удалено
+            }
         }
-        else
+        return false; // Не удалили
+    }
+
+    @Override
+    public Pet findPet(int id)
+    {
+        for (Pet pet : pets)
+            if (pet instanceof Cat && ((Cat) pet).getId() == id ||
+                pet instanceof Dog && ((Dog) pet).getId() == id)
+            {
+                return pet;
+            }
+        return null;
+    }
+
+    @Override
+    public int CountPets()
+    {
+        return petCount;
+    }
+
+    @Override
+    public void printPets()
+    {
+        for (int i = 0; i < petCount; i++)
         {
-            System.out.println("No more space for new pets...");
+            System.out.println(pets[i]);
         }
     }
+
 
     @Override
     public double calculateRevenue() // считаем доход
@@ -66,7 +111,7 @@ public class PetHotelImpl implements PetHotel
         double revenue = 0;
         for (int i = 0; i < petCount; i++)
         {
-            revenue += pricePerDay * pets[i].getAge(); // пример расчета
+            revenue += pricePerDay; // пример расчета
         }
         return revenue;
     }
@@ -148,6 +193,8 @@ public class PetHotelImpl implements PetHotel
         }
         return foundPets;
     }
+    //------------------------------------------------------------------------
+
 
 
 }
