@@ -81,7 +81,8 @@ public class PetHotelImpl implements PetHotel
     }
 
     @Override
-    public Pet[] dogsByBreed() {
+    public Pet[] dogsByBreed()
+    {
         return findPetsByPredicate(pet -> pet instanceof Dog);
     }
 
