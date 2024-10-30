@@ -5,25 +5,25 @@ import java.util.Objects;
 
 public class Event
 {
-    private int identifier;
+    private int eventId;
     private String title;
     private String url;
     private LocalDate data;
 
-    public Event(int identifier,
+    public Event(int eventId,
             String title,
             String url,
             LocalDate data)
     {
-        this.identifier = identifier;
+        this.eventId = eventId;
         this.title = title;
         this.url = url;
         this.data = data;
     }
 
-    public int getIdentifier()
+    public int getEventId()
     {
-        return identifier;
+        return eventId;
     }
 
     public String getTitle()
@@ -56,20 +56,20 @@ public class Event
     {
         if (this == o) return true;
         if (!(o instanceof Event event)) return false;
-        return identifier == event.identifier;
+        return eventId == event.eventId;
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hashCode(identifier);
+        return Objects.hashCode(eventId);
     }
 
     @Override
     public String toString()
     {
         final StringBuilder sb = new StringBuilder("event.model.Event{");
-        sb.append("identifier=").append(identifier);
+        sb.append("EventId=").append(eventId);
         sb.append(", title='").append(title).append('\'');
         sb.append(", url='").append(url).append('\'');
         sb.append(", data=").append(data);

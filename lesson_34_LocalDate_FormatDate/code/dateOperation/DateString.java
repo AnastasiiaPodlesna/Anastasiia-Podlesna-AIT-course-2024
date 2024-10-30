@@ -19,7 +19,7 @@ public class DateString
         return dateString;
     }
 
-    public LocalDate toLocalDate()
+    public LocalDate toLocalDate() // преобразование строки в LocalDate
     {
         return LocalDate.parse(dateString, DateTimeFormatter.ofPattern(format));
     }

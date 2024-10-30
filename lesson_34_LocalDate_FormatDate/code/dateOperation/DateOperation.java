@@ -10,7 +10,7 @@ public class DateOperation
 
     public static int getAge (String birthday)//"12/04/1961","1961-11-28"
     {
-        LocalDate localDate = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("[dd/MM/yyyy][yyyy-MM-dd]"));
+        LocalDate localDate = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("[dd/MM/yyyy][yyyy-MM-dd]")); // привели строку в ISO формат LocalDate
         int age = (int) ChronoUnit.YEARS.between(localDate, LocalDate.now());
 
         return age;
@@ -21,7 +21,7 @@ public class DateOperation
     {
         DateString[] dateStrings = new DateString[dates.length];
 
-        // преобразуем строки в объекты DateString
+        // преобразовываем строки в объекты DateString
         for (int i = 0; i < dates.length; i++)
         {
             String format = dates[i].contains("/") ? "dd/MM/yyyy" : "yyyy-MM-dd";
