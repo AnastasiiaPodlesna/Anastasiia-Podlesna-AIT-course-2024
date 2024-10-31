@@ -6,6 +6,7 @@ import album.model.Photo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -55,6 +56,7 @@ class AlbumImplTest
         assertTrue(album.addPhoto(photo));
         photo = new Photo(2, 4, "t8", "url8", now.minusDays(2));
         assertFalse(album.addPhoto(photo));
+        printPhotos(photos);
     }
 
     @Test
@@ -80,25 +82,37 @@ class AlbumImplTest
     }
 
     @Test
-    void getAllPhotoFrom()
+    void getAllPhotoFromAlbum()
     {
-        assertArrayEquals(new Photo[]{photos[3], photos[4]}, album.getAllPhotoFrom(2));
+        assertArrayEquals(new Photo[]{photos[4], photos[3]}, album.getAllPhotoFromAlbum(2));
     }
 
     @Test
     void getPhotoBetweenDate()
-    { // проверить
-        Photo[] actual = album.getPhotoBetweenDate(now.minusDays(2).toLocalDate(), now.minusDays(6).toLocalDate());
+    {
+        // диапазон дат
+        LocalDate dateFrom = now.toLocalDate().minusDays(10);
+        LocalDate dateTo = now.toLocalDate().minusDays(7);
+
+        Photo[] actual = album.getPhotoBetweenDate(dateFrom, dateTo);
 
         Arrays.sort(actual, comparator);
-        Photo[] expected = {photos[5],photos[4],photos[2]};
+        Photo[] expected = {photos[0], photos[1], photos[3]};
         Arrays.sort(expected, comparator);
 
         assertArrayEquals(expected, actual);
+        printPhotos(actual);
     }
 
     @Test
     void size()
     {
+        assertEquals(5, album.size());
+    }
+
+    private void printPhotos(Photo[] photos)
+    {
+        for (Photo p : photos)
+        System.out.println(p);
     }
 }

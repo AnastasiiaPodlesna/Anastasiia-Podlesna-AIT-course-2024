@@ -5,6 +5,7 @@ import album.model.Photo;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class AlbumImpl implements Album
 {
@@ -85,21 +86,51 @@ public class AlbumImpl implements Album
     }
 
     @Override
-    public Photo[] getAllPhotoFrom(int albumId)
+    public Photo[] getAllPhotoFromAlbum(int albumId)
     {
-        return new Photo[0];
+        return findPhotoByPredicate(p -> p.getAlbumId() == albumId);
     }
 
     @Override
     public Photo[] getPhotoBetweenDate(LocalDate dateFrom,
             LocalDate dateTo)
     {
-        return new Photo[0];
+        Photo[] photoFromToDate = new Photo[photos.length];
+        int j = 0;
+
+        for (int i = 0; i < photos.length; i++)
+        {
+            if (photos[i] != null)
+            {
+                LocalDate photoDate = photos[i].getDate().toLocalDate(); // Преобразование LocalDateTime в LocalDate
+
+                // Фильтрация по датам
+                if ((photoDate.isEqual(dateFrom) || photoDate.isAfter(dateFrom)) &&
+                        (photoDate.isEqual(dateTo) || photoDate.isBefore(dateTo)))
+                {
+                    photoFromToDate[j] = photos[i];
+                    j++;
+                }
+            }
+        }
+        return Arrays.copyOf(photoFromToDate, j);
     }
 
     @Override
     public int size()
     {
         return size;
+    }
+
+    private Photo[] findPhotoByPredicate(Predicate<Photo> predicate) {
+        Photo[] res = new Photo[size];
+        int j = 0; // это индексы массива результатов
+        for (int i = 0; i < size; i++) {
+            if(predicate.test(photos[i]))
+            {
+                res[j++] = photos[i];
+            }
+        }
+        return Arrays.copyOf(res, j); // обрезаем хвост из null
     }
 }
