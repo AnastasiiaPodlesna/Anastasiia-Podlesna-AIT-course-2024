@@ -1,6 +1,7 @@
-package ilist.model;
+package classwork.ilist.model;
 
-public interface IList<E> extends Iterable<E>{
+public interface IList<E> extends Iterable<E>
+{
 
     int size();
 
@@ -30,6 +31,8 @@ public interface IList<E> extends Iterable<E>{
     E remove(int index);
 
     E get(int index);
+
+    E set(int index, E element);
 
     int indexOf(Object o);
 

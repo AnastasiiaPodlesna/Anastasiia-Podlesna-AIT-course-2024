@@ -40,6 +40,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_33_intro_ENUM/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_34_LocalDate_FormatDate/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_35_List/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_36_List/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
