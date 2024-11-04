@@ -1,4 +1,4 @@
-package linkedListTest;
+package ckasswork.linkedListTest;
 
 // заполнить список случайными целыми числами
 // проверить работу методов LinkedList

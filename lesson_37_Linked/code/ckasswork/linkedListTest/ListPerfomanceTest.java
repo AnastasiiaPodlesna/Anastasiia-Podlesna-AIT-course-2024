@@ -1,4 +1,4 @@
-package linkedListTest;
+package ckasswork.linkedListTest;
 
 import java.util.Iterator;
 import java.util.LinkedList;
