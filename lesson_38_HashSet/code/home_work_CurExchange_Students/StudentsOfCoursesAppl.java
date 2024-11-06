@@ -66,14 +66,14 @@ public class StudentsOfCoursesAppl
         return setDifference;
     }
 
-    private static HashSet<String> studentsIntersection (HashSet<String> mathematics, HashSet<String> computerScience)
+    private static HashSet<String> studentsIntersection (HashSet<String>course1, HashSet<String> course2)
     {
         HashSet<String> intersection = new HashSet<>();
 
-        for (String mathematician: mathematics)            //retainAll
-            if (computerScience.contains(mathematician))
+        for (String course: course1)            //retainAll
+            if (course2.contains(course))
             {
-                intersection.add(mathematician);
+                intersection.add(course);
             }
         return intersection;
     }
