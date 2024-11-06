@@ -45,16 +45,5 @@ public class SupermarketAppl
 
         System.out.println("\n------------------------------------------------------------");
 
-
-
-
-
-
-
-
-
-
-
-
     }
 }

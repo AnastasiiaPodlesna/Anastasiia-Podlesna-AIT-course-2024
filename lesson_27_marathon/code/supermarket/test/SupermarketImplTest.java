@@ -21,8 +21,8 @@ class SupermarketImplTest
     @BeforeEach
     void setUp()
     {
-       products = new Product[5];
-       supermarket = new SupermarketImpl(6);
+        products = new Product[5];
+        supermarket = new SupermarketImpl(6);
 
         products[0] = new Food(1000L, "Broad", 3.0, LocalDate.of(2024,9,11));
         products[1] = new MilkFood(1001L,"Milk",2.40, LocalDate.of(2025,1,23),"LactoFree");

@@ -27,7 +27,6 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_22_intro/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_23_intro/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_24_intro/code" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lesson_25_intro/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_26_intro/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/marathon" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/marathon/code" isTestSource="false" />
@@ -43,12 +42,29 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_36_List/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_37_Linked/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_38_HashSet/code" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lesson_39_intro/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_25_regex/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_40_supermarket_ArrayList_HashList_LinkedList/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.8.1">
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/" />

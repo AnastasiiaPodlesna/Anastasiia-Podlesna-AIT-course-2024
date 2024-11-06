@@ -1,3 +1,4 @@
+
 package supermarket.model;
 
 import java.time.LocalDate;

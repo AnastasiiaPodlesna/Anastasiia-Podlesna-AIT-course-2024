@@ -1,3 +1,4 @@
+
 package supermarket.dao;
 
 import supermarket.model.Product;
@@ -83,7 +84,7 @@ public class SupermarketImpl implements SuperMarket
         double totalCost = 0.0;
         for (int i = 0; i < size; i++)
         {
-           totalCost+=  products[i].getPrice();
+            totalCost+=  products[i].getPrice();
         }
         return totalCost;
     }

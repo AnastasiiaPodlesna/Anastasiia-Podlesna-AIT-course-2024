@@ -1,3 +1,4 @@
+
 package supermarket.model;
 
 import java.time.LocalDate;
@@ -19,3 +20,4 @@ public class Food extends Product
         System.out.printf("barCode: %d, name: %s, price: %.2f, expiration_date: %s%n", getBarCode(), getName(), getPrice(), getExp_date().toString());
     }
 }
+

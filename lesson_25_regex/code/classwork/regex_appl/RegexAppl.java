@@ -1,7 +1,5 @@
 package classwork.regex_appl;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class RegexAppl
 {
     public static void main(String[] args)
