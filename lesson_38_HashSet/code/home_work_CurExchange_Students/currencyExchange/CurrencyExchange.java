@@ -7,8 +7,8 @@ public enum CurrencyExchange
     EGP("EGP", 0.0187),
     KZT("KZT", 0.0019),
     GBP("GBP", 1.19),
-    FJD("FJD", 0.4091),
-    EGPP("EGP", 0.0187);
+    FJD("FJD", 0.4091);
+    //EGPP("EGP", 0.0187);
 
 
     private String currency_codes;
