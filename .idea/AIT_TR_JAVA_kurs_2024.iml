@@ -45,6 +45,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_25_regex/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_40_supermarket_ArrayList_HashList_LinkedList/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_41_TreeSet_Collection/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_42_Map/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
