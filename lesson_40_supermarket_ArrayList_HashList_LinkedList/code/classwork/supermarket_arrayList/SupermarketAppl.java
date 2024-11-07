@@ -21,7 +21,8 @@ public class SupermarketAppl
         products[3] = new Product(444444, "Cheese Cheddar", "Dairy", "MilkLand", 30, now.plusDays(85));
         products[4] = new Product(555555, "Sweet Beans", "Bread", "Kolosok", 18.3, now.minusDays(25));
 
-        for (Product p : products) {
+        for (Product p : products)
+        {
             myMarket.addProduct(p);
         }
 
