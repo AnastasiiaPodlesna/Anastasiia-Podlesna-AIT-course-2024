@@ -65,7 +65,7 @@ public class Product
     @Override
     public String toString()
     {
-        return String.format("\nProduct: barCode %d, name '%s', category '%s', brand '%s', price %.2f, expDate %s", barCode, name, category, brand, price, expDate);
+        return String.format("Product: barCode %d, name '%s', category '%s', brand '%s', price %.2f, expDate %s\n", barCode, name, category, brand, price, expDate);
     }
 
     @Override
