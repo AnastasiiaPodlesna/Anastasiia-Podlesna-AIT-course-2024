@@ -43,7 +43,7 @@ public class CurrencyExchangeAppl
         double amountOfMoney = scanner.nextDouble(); // ввод пользователем суммы для обмена
 
         // вывод на экран всей информации по обмену валют
-        System.out.println(amountOfMoney + " " + currencyExchangeList.get(choice).getCurrency_codes() + " <=> " + currencyExchanger(amountOfMoney, currencyExchangeList.get(choice).getCurrent_exchange()));
+        System.out.println(amountOfMoney + " " + currencyExchangeList.get(choice).getCurrency_codes() + " <=> " + currencyExchanger(amountOfMoney, currencyExchangeList.get(choice).getCurrent_exchange()) + "EUR");
     }
 
 

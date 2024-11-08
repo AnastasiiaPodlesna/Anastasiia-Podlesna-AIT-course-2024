@@ -1,0 +1,6 @@
+Arrays.stream(cars).forEach(carTreeSetByColor::add);
+
+TreeSet<Car> carTreeSetByCompany = new TreeSet<>(Comparator.comparing(Car::getCompany));
+
+products.forEach(supermarket::addProduct);
+
