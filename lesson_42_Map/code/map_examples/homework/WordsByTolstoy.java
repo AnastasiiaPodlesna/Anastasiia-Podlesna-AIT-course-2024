@@ -1,4 +1,4 @@
-package map_examples;
+package map_examples.homework;
 
 // Подсчитайте частоту использования слов в предложении Л.Н.Толстого
 // Удаление знаков препинания и приведение к нижнему регистру text = text.replaceAll("[^a-zA-Z0-9\s]", "").toLowerCase();
