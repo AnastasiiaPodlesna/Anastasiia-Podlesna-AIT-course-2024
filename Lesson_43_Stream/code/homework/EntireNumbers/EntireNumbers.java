@@ -25,8 +25,7 @@ public class EntireNumbers
 
     static boolean isPrime(int number)
     {
-        return number > 1
-                && IntStream.rangeClosed(2, (int) Math.sqrt(number))// создает поток чисел от 2 до квадратного корня числа number
+        return number > 1 && IntStream.rangeClosed(2, (int) Math.sqrt(number))// создает поток чисел от 2 до квадратного корня числа number
                 .noneMatch(n -> (number % n == 0)); // проверяет, если ни одно число в потоке не делит number нацело, то число считается простым.
     }
 
