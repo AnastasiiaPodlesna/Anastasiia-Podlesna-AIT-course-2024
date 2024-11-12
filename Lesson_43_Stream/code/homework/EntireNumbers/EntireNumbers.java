@@ -3,21 +3,20 @@ package homework.EntireNumbers;
 // Имеется набор целых чисел: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.
 // Требуется из этого списка отобрать только простые числа. Используйте методы stream()
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class EntireNumbers
 {
     public static void main(String[] args)
     {
-        List<Integer> entireNumbers = new ArrayList<>(Arrays.asList(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
+        List<Integer> entireNumbers = Arrays.asList(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
 
         List<Integer> simpleNumbers = entireNumbers.stream()
                 .filter(EntireNumbers::isPrime)
-                .collect(Collectors.toList());
+               // .collect(Collectors.toList());
+                  .toList();
 
         // Выводим простые числа
         System.out.println("Simple numbers: " + simpleNumbers);

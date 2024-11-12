@@ -47,6 +47,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_41_TreeSet_Collection/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_42_Map/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lesson_43_Stream/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_44_Book/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
