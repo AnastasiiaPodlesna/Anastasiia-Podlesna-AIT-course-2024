@@ -1,16 +1,30 @@
 package exchange.currencyExchange.model;
 
+// Тема 5: Пункт обмена валюты:
+//
+//количество валют - не боле 10
+//основная валюта - EUR
+//маржинальность при обмене - 5% от биржевого курса
+//добавление/удаление/редактирование и поиск транзакций по обмену валюты по датам в интервале ОТ и ДО
+//сохранение и считывание списка транзакций по обмену валюты из файла
+//виды транзакций:
+//продажа
+//покупка
+//просмотр отчета по объему транзакций по обмену валюты по виду транзакций:
+//продажа
+//покупка
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Transaction implements Comparable<Transaction>
-{
-   private int number;
-   private String name;
-   private boolean type; // true -  продажа, false -покупка
-   private LocalDate date;
-   private double res;
-   private double marge; // моржа
+public class Transaction implements Comparable<Transaction> {
+
+    private int number;
+    private String name;
+    private boolean type; // true -  продажа, false -покупка
+    private LocalDate date;
+    private double res;
+    private double marge; // моржа
 
     public Transaction(int number,
             String name,
