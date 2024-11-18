@@ -20,7 +20,7 @@ public class SaveEmployeeAppl
         firma.add(e2);
 
         // отправляем в файл
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("data.dat")))
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("datas.dat")))
         {
             oos.writeObject(firma); // запись в файл
 

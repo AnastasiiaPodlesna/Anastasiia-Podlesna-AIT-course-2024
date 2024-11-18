@@ -41,7 +41,6 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_35_List/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_36_List/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_37_Linked/code" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lesson_38_HashSet/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_25_regex/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_40_supermarket_ArrayList_HashList_LinkedList/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_41_TreeSet_Collection/code" isTestSource="false" />
@@ -49,6 +48,9 @@
       <sourceFolder url="file://$MODULE_DIR$/Lesson_43_Stream/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_44_Book/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_45_in_out_putStream/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_38_HashSet_CurExchange/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_46_ToDo/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/project/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
