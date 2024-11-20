@@ -35,7 +35,6 @@ class OperationsImplTest {
         assertEquals(4, add.getNumber());
     }
 
-
     @Test
     void removeTrans() {
         boolean res = operations.removeTrans(2);

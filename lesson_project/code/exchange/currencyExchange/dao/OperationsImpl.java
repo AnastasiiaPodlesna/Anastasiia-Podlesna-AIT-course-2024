@@ -24,6 +24,7 @@ public class OperationsImpl implements Operations, Serializable {
     public static final String STORAGE = "current_exchange_list.dat";
     Scanner scanner;
     List<Transaction> transactions;
+    public static String input;
 
     public OperationsImpl(List<Transaction> transactions) {
         this.transactions = transactions;
@@ -36,86 +37,90 @@ public class OperationsImpl implements Operations, Serializable {
 
         StartMenu moneyday[] = StartMenu.values();
         boolean checker = true;
+        boolean validChoice = false;
 
         while (checker) {
 
             StartMenu.printMenu();
             Scanner scanner = new Scanner(System.in);
-            int actionNum = scanner.nextInt();
-            LocalDate dateFrom;
-            LocalDate dateTo;
-            switch (actionNum) {
-                case 1 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " Good !");
-                    mainMenu();
-                }
-                case 2 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " Input the number, please:");
-                    int num = scanner.nextInt();
-                    Transaction findedTrans = findTrans(num);
-                    if (findedTrans == null) System.out.println("No such transaction.");
-                    else System.out.println(findedTrans);
-                }
-                case 3 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " All transactions:");
-                    System.out.println(); printTrans();
-                }
-                case 4 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + "Input data, please");
-                    System.out.println();
-                    System.out.print("Input start date ");
-                    dateFrom = dateFromUserToSystem();
-                    System.out.print("\nInput finish date ");
-                    dateTo = dateFromUserToSystem();
-                    printTrans(findTransByDate(dateFrom, dateTo));
-                }
-                case 5 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction());
-                    int typeChoice;
-                    do
-                    {
-                    String valuta = chooseCurrency();
-                    System.out.println();
-                    typeChoice = chooseType();
-                    if (typeChoice == 3)
-                    {
-                        break;
+            input = scanner.nextLine();
+            if (input.matches("\\d+"))
+            {    //  проверка на неправильный ввод
+                int actionNum = Integer.parseInt(input);
+                validChoice = true;
+
+                LocalDate dateFrom;
+                LocalDate dateTo;
+                switch (actionNum) {
+                    case 1 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " Good !");
+                        mainMenu();
                     }
-                    boolean typeFin = typeChoice == 1 ? true : false;
-                  //  findTransByType(valuta, typeFin);
-                    printTrans(findTransByType(valuta, typeFin));
-                        int continueChoice;
-                        do {
-                            System.out.println("Press 1 - for continue, or 0 - for exit:");
-                            continueChoice = scanner.nextInt();
-                        } while (continueChoice != 0 && continueChoice != 1);
-
-                        if (continueChoice == 0) {
-                            System.out.println("Thank you for using our services!");
-                            break;
-                        }
-
-                    } while (typeChoice != 3);
-                }
-                case 6 -> {
-                    System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + ": input the transaction number, you want to remove:");
-                    printTrans();
-                    int numRemove = scanner.nextInt();
-                    if (removeTrans(numRemove))
-                    {
-                        System.out.println(" Delete Successful !");
+                    case 2 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " Input the number, please:");
+                        int num = scanner.nextInt();
+                        Transaction findedTrans = findTrans(num);
+                        if (findedTrans == null) System.out.println("No such transaction.");
+                        else System.out.println(findedTrans);
+                    }
+                    case 3 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + " All transactions:");
+                        System.out.println();
                         printTrans();
                     }
-                    else System.out.println("No such transaction");
-                }
-                case 7 -> {
-                    checker = false;
-                    System.out.println("Wait for you later. Bye !");
-                    break;
-                }
-                default -> System.out.println("I'm sorry, don't understand you.");
+                    case 4 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + "Input data, please");
+                        System.out.println();
+                        System.out.print("Input start date ");
+                        dateFrom = dateFromUserToSystem();
+                        System.out.print("\nInput finish date ");
+                        dateTo = dateFromUserToSystem();
+                        printTrans(findTransByDate(dateFrom, dateTo));
+                    }
+                    case 5 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction());
+                        int typeChoice;
+                        do {
+                            String valuta = chooseCurrency();
+                            System.out.println();
+                            typeChoice = chooseType();
+                            if (typeChoice == 3) {
+                                break;
+                            }
+                            boolean typeFin = typeChoice == 1 ? true : false;
+                            //  findTransByType(valuta, typeFin);
+                            printTrans(findTransByType(valuta, typeFin));
+                            int continueChoice;
+                            do {
+                                System.out.println("Press 1 - for continue, or 0 - for exit:");
+                                continueChoice = scanner.nextInt();
+                            } while (continueChoice != 0 && continueChoice != 1);
 
-            }//end actionNum
+                            if (continueChoice == 0) {
+                                System.out.println("Thank you for using our services!");
+                                break;
+                            }
+
+                        } while (typeChoice != 3);
+                    }
+                    case 6 -> {
+                        System.out.println(actionNum + ". " + moneyday[actionNum - 1].getAction() + ": input the transaction number, you want to remove:");
+                        printTrans();
+                        int numRemove = scanner.nextInt();
+                        if (removeTrans(numRemove)) {
+                            System.out.println(" Delete Successful !");
+                            printTrans();
+                        } else System.out.println("No such transaction");
+                    }
+                    case 7 -> {
+                        checker = false;
+                        System.out.println("Wait for you later. Bye !");
+                        break;
+                    }
+                    default -> System.out.println("I'm sorry, don't understand you.");
+
+                }//end actionNum
+            } else System.out.println("Error. Input is no correct");
         }//end while checker
 
     }//end startMenu
@@ -149,7 +154,7 @@ public class OperationsImpl implements Operations, Serializable {
     public void mainMenu() {
         Scanner scanner = new Scanner(System.in);
 
-        int mainChoise;
+        int mainChoise = 0;
         double amountChoise = 0;
         String valuta = null;
 
@@ -163,35 +168,45 @@ public class OperationsImpl implements Operations, Serializable {
 
             do {
                 System.out.println("Input sum: ");
-                amountChoise = scanner.nextDouble();
-            } while (amountChoise < 1);
+                if (scanner.hasNextDouble()) {
+                    amountChoise = scanner.nextDouble();
+                    if (amountChoise > 0) {
+                        break;  // корректная сумма
+                    } else {
+                        System.out.println("Amount must be greater than 0.");
+                    }
+                } else {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                    scanner.nextLine();  // очистить буфер
+                }
+            } while (amountChoise <= 0);  // сумма должна быть больше 0
 
-            valuta = chooseCurrency();
+            valuta = chooseCurrency();  // валюта
 
             // если сумма положительная — это покупка, если отрицательная — это продажа
-
-            if (typeChoice == 2)
-            {
-                amountChoise = amountChoise * (-1);
+            if (typeChoice == 2) {
+                amountChoise = amountChoise * (-1);  // продажа
             }
 
             double result = calcRes(valuta, amountChoise);
             double margeResult = calcMarge(valuta);
 
-            // true или 1 - продажа, false или 2 - покупка
+            // true или 1 - покупка, false или 2 - продажа
             boolean typeFin = (typeChoice == 1);
 
-            int transactionNum = 0;
-            if (transactions.isEmpty()) {
-                transactionNum = 1;
-            } else {
-                transactionNum = transactions.size() + 1; // добавляем новый номер транзакции
-            }
+            int transactionNum = transactions.isEmpty() ? 1 : transactions.size() + 1;  // новый номер транзакции
             addTrans(transactionNum, valuta, typeFin, LocalDate.now(), result, margeResult);
 
+            // продолжение работы
             do {
                 System.out.println("Press 1 - for continue, or 0 - for exit:");
-                mainChoise = scanner.nextInt();
+                if (scanner.hasNextInt()) {
+                    mainChoise = scanner.nextInt();
+                    break;  // если ввод корректен
+                } else {
+                    System.out.println("Invalid input. Please enter 1 or 0.");
+                    scanner.nextLine();  // очистить буфер
+                }
             } while (mainChoise != 0 && mainChoise != 1);
 
             if (mainChoise == 0) {
@@ -205,13 +220,19 @@ public class OperationsImpl implements Operations, Serializable {
     public int chooseType() {
         // если сумма 'amount' положительная — это покупка, если отрицательная — это продажа.
         Scanner scanner = new Scanner(System.in);
-        int typeChoice;
+        int typeChoice = 0;
         do {
-            System.out.println(" Press 1 - for sell, 2 - for buy, 3 - for exit:");
-            typeChoice = scanner.nextInt();
-            if (typeChoice == 3)
+            System.out.println("Press 1 - for sell, 2 - for buy, 3 - for exit:");
+            if (scanner.hasNextInt())
             {
-                break;
+                typeChoice = scanner.nextInt();
+                if (typeChoice == 1 || typeChoice == 2 || typeChoice == 3) {
+                    break;
+                }
+            } else {
+                // если ввели не число
+                System.out.println("Invalid input.");
+                scanner.nextLine();
             }
         } while (typeChoice != 1 && typeChoice != 2 && typeChoice != 3);
         return typeChoice;
@@ -219,26 +240,48 @@ public class OperationsImpl implements Operations, Serializable {
 
 
     public String chooseCurrency() {
-        int currencyChoise;
         String valuta = null;
-        do {
+        boolean validInput = false;
+
+        // Continuously prompt the user until a valid choice is made
+        while (!validInput) {
             System.out.println("Choose currency, please:");
+
+            // Display the currency options
             int tempNum = 1;
             for (CurrencyExchange choise : CurrencyExchange.values()) {
                 System.out.println(" press " + tempNum++ + " - for " + choise.getCurrency_codes());
-            }//end for
+            }
+
+            // Read user input
             Scanner scanner = new Scanner(System.in);
-            currencyChoise = scanner.nextInt();
-        } while (currencyChoise < 1 || currencyChoise > 7);
-        switch (currencyChoise) {
-            case 1 -> valuta = "USD";
-            case 2 -> valuta = "AUD";
-            case 3 -> valuta = "EGP";
-            case 4 -> valuta = "KZT";
-            case 5 -> valuta = "GBP";
-            case 6 -> valuta = "FJD";
-        }//end switch
+            String input = scanner.nextLine();
+
+            if (input.matches("\\d+")) {
+                int currencyChoice = Integer.parseInt(input);
+
+                if (currencyChoice >= 1 && currencyChoice <= CurrencyExchange.values().length) {
+                    // Valid choice, set the currency
+                    switch (currencyChoice) {
+                        case 1 -> valuta = "USD";
+                        case 2 -> valuta = "AUD";
+                        case 3 -> valuta = "EGP";
+                        case 4 -> valuta = "KZT";
+                        case 5 -> valuta = "GBP";
+                        case 6 -> valuta = "FJD";
+                        default -> valuta = null; // Default case, although shouldn't reach here
+                    }
+                    validInput = true; // Exit the loop after successful input
+                } else {
+                    System.out.println("Invalid currency choice. Please select a valid option.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+
         return valuta;
+
     }//end chooseCurrency
 
     @Override
