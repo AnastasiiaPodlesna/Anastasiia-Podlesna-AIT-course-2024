@@ -16,9 +16,9 @@ package exchange.currencyExchange.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.io.Serializable;
 
-public class Transaction implements Comparable<Transaction> {
-
+public class Transaction implements Comparable<Transaction>, Serializable {
     private int number;
     private String name;
     private boolean type; // true -  продажа, false -покупка
@@ -90,16 +90,12 @@ public class Transaction implements Comparable<Transaction> {
     }
 
     @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("exchange.currencyExchange.model.Transaction{");
-        sb.append("number=").append(number);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", type=").append(type);
-        sb.append(", date=").append(date);
-        sb.append(", res=").append(res);
-        sb.append(", marge=").append(marge);
-        sb.append('}');
-        return sb.toString();
+    public String toString()
+    {
+        return String.format(
+                "Number: %d, Currency: %s, Type of operation: %b, Date: %s, Result: %.2f, Margin: %.2f",
+                number, name, type, date, res, marge
+        );
     }
 
     @Override

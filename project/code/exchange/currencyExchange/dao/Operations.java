@@ -9,25 +9,21 @@ public interface Operations {
 
    void mainMenu();
 
-   Transaction addTrans(int num);
+   Transaction addTrans(int num, String name, boolean type, LocalDate date, double res, double marge);
 
-   Boolean removeTrans(int num);
+   boolean removeTrans(int num);
 
    Transaction findTrans(int num);
 
-   List<Transaction> findTransByDate(LocalDate dateFrom, LocalDate dateTo); // Natalia
+   List<Transaction> findTransByDate(LocalDate dateFrom, LocalDate dateTo);
 
-   List<Transaction> findTransByType(boolean type); // Natalia
+   List<Transaction> findTransByType(String valuta, boolean type);
 
-   int quantity(); // Natalia
+   int quantity();
 
    double calcRes(String name, double amount);
 
-   double calcMarge(String currency);
-
-   void saveToFile(String fileName); // Natalia
-
-   void loadToFile(String fileName); // Natalia
+   double calcMarge(String name);
 
    void printTrans();
 

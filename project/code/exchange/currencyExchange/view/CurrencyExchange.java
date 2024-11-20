@@ -8,7 +8,7 @@ public enum CurrencyExchange
     KZT("KZT", 0.0019),
     GBP("GBP", 1.19),
     FJD("FJD", 0.4091);
-    //EGPP("EGP", 0.0187);
+
 
 
     private String currency_codes;
@@ -34,7 +34,7 @@ public enum CurrencyExchange
     @Override
     public String toString()
     {
-        return currency_codes + " - курс: " + current_exchange + " EUR";
+        return currency_codes + " - rate: " + current_exchange + " EUR";
     }
 
 }

@@ -2,6 +2,7 @@ package exchange.currencyExchange.test;
 
 import exchange.currencyExchange.dao.OperationsImpl;
 import exchange.currencyExchange.model.Transaction;
+import exchange.currencyExchange.view.CurrencyExchange;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,8 +31,8 @@ class OperationsImplTest {
     @Test
     void addTrans() {
         int newTransNum = 5;
-        Transaction add = operations.addTrans(newTransNum);
-        assertEquals(newTransNum, add.getNumber());
+        Transaction add = operations.addTrans(4, "USD", true, null, 400, 4);
+        assertEquals(4, add.getNumber());
     }
 
 
@@ -46,7 +47,7 @@ class OperationsImplTest {
     @Test
     void findTrans() {
         Transaction found = operations.findTrans(3);
-        assertNull(found);
+        assertNotNull(found);
         assertEquals(3,found.getNumber());
         Transaction notFound = operations.findTrans(111);
     }
@@ -63,22 +64,21 @@ class OperationsImplTest {
 
     @Test
     void findTransByType() {
-
-        // так как true- продажа, false -покупка, находим транзакции данного типа
-        // сначала проверяем, что метод возвращает только продажи
-        List<Transaction> saleTransactions = operations.findTransByType(true);
-        // исходя из тестового набора данных, ожидается 2 продажи
+        // Проверяем продажи для валюты "USD"
+        List<Transaction> saleTransactions = operations.findTransByType("USD", true);
         assertEquals(2, saleTransactions.size());
-        // проверяем валюты продаж
         assertEquals("USD", saleTransactions.get(0).getName());
         assertEquals("USD", saleTransactions.get(1).getName());
 
-        // аналогичныу тесты для покупки
-        List<Transaction> buyingTransactions = operations.findTransByType(false);
-        assertEquals(2, buyingTransactions.size());
-        assertEquals("EUR", buyingTransactions.get(0).getName());
-        assertEquals("GPB", buyingTransactions.get(1).getName());
+        // Проверяем покупки для валюты "EUR"
+        List<Transaction> eurBuyingTransactions = operations.findTransByType("EUR", false);
+        assertEquals(1, eurBuyingTransactions.size());
+        assertEquals("EUR", eurBuyingTransactions.get(0).getName());
 
+        // Проверяем покупки для валюты "GPB"
+        List<Transaction> gpbBuyingTransactions = operations.findTransByType("GPB", false);
+        assertEquals(1, gpbBuyingTransactions.size());
+        assertEquals("GPB", gpbBuyingTransactions.get(0).getName());
     }
 
     @Test
@@ -88,24 +88,36 @@ class OperationsImplTest {
         assertEquals(4, count);
     }
 
+
     @Test
     void calcRes() {
+        // тестируем покупку USD
+        double actualUsdBuying = operations.calcRes("USD", 100);
 
-        OperationsImpl operations = new OperationsImpl(null);
-        // USD, курс = 0.9178
-        double margin = operations.calcMarge("USD");
-        // 5% от 0.9178 = 0.04589
-        assertEquals(0.04589, margin, 0.00001);
+        double expectedUsdBuying = 100 / (CurrencyExchange.USD.getCurrent_exchange() + CurrencyExchange.USD.getCurrent_exchange() * 0.05);//узнаем сколько получим с покупки 100 долларов
+        assertEquals(expectedUsdBuying, actualUsdBuying, 0.001);
 
+        // продажa USD
+        double actualUsdSell = operations.calcRes("USD", -100);
+        double expectedUsdSell = 100 * (CurrencyExchange.USD.getCurrent_exchange() - CurrencyExchange.USD.getCurrent_exchange() * 0.05);// узнаем сколько получим с продажи 100 долларов
+        assertEquals(expectedUsdSell, actualUsdSell, 0.001);
 
-
-
+        // делаем тест на покупку не существующей валюты
+        double invalidRes = operations.calcRes("INVALID", 100);
+        assertEquals(0, invalidRes);// так как валюты не существует, то и результат получим 0
     }
 
     @Test
     void calcMarge() {
-//        double marge = operations.calcMarge();
-//        double expected = (100 * 1.5) + (200 * 2.0) + (300 * 1.0) + (400 * 1.2);
-//        assertEquals(expected, marge, 0.1);
+    // рассчитываем маржу для доллара
+    double usdMargin = operations.calcMarge("USD");
+    assertEquals(0.05 * CurrencyExchange.USD.getCurrent_exchange(), usdMargin, 0.001);
+
+    // несуществующая валюта
+    double invalidMargin = operations.calcMarge("INVALID");
+    assertEquals(0, invalidMargin);// так как такой валюты нет, то и маржа будет 0
     }
+
+
+
 }
