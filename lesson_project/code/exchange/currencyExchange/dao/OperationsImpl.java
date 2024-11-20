@@ -291,11 +291,24 @@ public class OperationsImpl implements Operations, Serializable {
     }//end addTrans
 
     @Override
-    public boolean removeTrans(int num) {
-        // Ищем транзакцию по номеру и удаляем
+    public boolean removeTrans(int num)
+    {
+        // по номеру удаляем
         transactions.sort(Comparator.comparing(Transaction::getNumber));
-        return transactions.removeIf(transaction -> transaction.getNumber() == num);
-    }
+
+        boolean removed = transactions.removeIf(transaction -> transaction.getNumber() == num);
+
+        if (removed)
+        {
+            // после удаления всех транзакций перенумеровываем их!!!!
+            int newNumber = 1; // Начинаем с 1
+            for (Transaction transaction : transactions)
+            {
+                transaction.setNumber(newNumber++);
+            }
+        }
+     return removed;
+}
 
     @Override
     public Transaction findTrans(int num) {

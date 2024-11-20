@@ -51,6 +51,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lesson_38_HashSet_CurExchange/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_46_ToDo/code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lesson_project/code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lesson_throw/code" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
